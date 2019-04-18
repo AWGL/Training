@@ -1,0 +1,1 @@
+grep -v orf00001 TY2482_genes.predict | grep ^orf | awk '{OFS="\t"; orf=$4; gsub(/[+-]/," ",orf)}{if ($4 > 0) print "TY-2482_chromosome", "glimmer", "cds-"$1, $2, $3, $5, "+", orf, "ID="$1" NOTE:GLIMMER ORF prediction"; else if ($4 < 0) print "TY-2482_chromosome", "glimmer", "cds-"$1, $3, $2, $5, "-", orf, "ID="$1" NOTE:GLIMMER ORF prediction"}'
